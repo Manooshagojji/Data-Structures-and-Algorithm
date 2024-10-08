@@ -65,4 +65,25 @@ public class Main {
     }
 }
 ----------------------------------------------
+4Q-count the odd number of pairs 
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int[] arr ={1,2,3};
+
+        countOddPairs(arr);
+    }
+    static void countOddPairs(int[] arr){
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr.length;j++){
+                if((arr[i]+arr[j])%2!=0){
+                    System.out.println(arr[i]+" "+arr[j]);
+                }
+            }
+        }
+    }
+}
+----------------------------------------------------------------
+
 
