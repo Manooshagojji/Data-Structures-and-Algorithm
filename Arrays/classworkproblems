@@ -159,5 +159,112 @@ op-
 2 3 1 4 5 
 45 6 7 8 9 
 1 2 3 4 5 
+-------------------------------------------------------------
+8Q-print lowerTriangular matrix
+import java.util.Arrays;
+class HelloWorld {
+    public static void main(String[] args) {
+        int [][] arr={
+            {1,2,3,4,5},
+            {2,3,1,4,5},
+            {4,6,7,8,9},
+            {3,4,5,6,7},
+            {1,2,3,4,5},
+        };
+        for(int i=0;i<arr.length;i++){
+              for(int j=0;j<arr[0].length;j++){
+                  if(i<j){
+                      System.out.print("0"+" ");
+                  }
+                  else{
+                      System.out.print(arr[i][j]+" ");
+                  }
+              }
+              System.out.println();
+          }
+        } }
+op-
+1 0 0 0 0 
+2 3 0 0 0 
+4 6 7 0 0 
+3 4 5 6 0 
+1 2 3 4 5 
+-------------------------------------------------------------------------
+9Q-printing pattern question
+import java.util.Arrays;
+class HelloWorld {
+    public static void main(String[] args) {
+        int [][] arr={
+           {11,12,13,14},
+           {21,22,23,24},
+           {31,32,33,34},
+        };
+       
+          for(int j=0;j<arr[0].length;j++){
+              if(j%2==0){
+                  for(int i=0;i<arr.length;i++){
+                      System.out.print(arr[i][j]+" ");
+                  }
+                  System.out.println();
+              }
+              else{
+                  for(int i=arr.length-1;i>=0;i--){
+                      System.out.print(arr[i][j]+" ");
+                  }
+                  System.out.println();
+              }
+          }
+        }
+    }
+op-
+11 21 31 
+32 22 12 
+13 23 33 
+34 24 14 
+----------------------------------------------------------
+10Q-Transpose of matrix
+import java.util.Arrays;
+//n*n size
+class HelloWorld {
+    public static void main(String[] args) {
+        int [][] arr={
+           {11,12,13,14},
+           {21,22,23,15},
+           {31,32,33,34},
+           {1,2,3,4},
+        };
+int m=arr.length;
+int n=arr[0].length;
+      swap(arr,m,n);
+      displayArray(arr,m,n);
+        }
+        public static void swap(int[][] arr,int m,int n){
+             for(int i=1;i<m;i++){
+                for(int j=0;j<i;j++){
+                     int temp=arr[i][j];
+            arr[i][j]=arr[j][i];
+            arr[j][i]=temp;
+          
+                }
+            }
+        }
+        public static void displayArray(int[][] arr,int m,int n){
+            for(int i=0;i<m;i++){
+                for(int j=0;j<n;j++){
+                    System.out.print(arr[i][j]+" ");
+                }
+                System.out.println();
+            }
+        }
+    }
+op-
+11 21 31 1 
+12 22 32 2 
+13 23 33 3 
+14 15 34 4 
+
+
+
+
 
 
