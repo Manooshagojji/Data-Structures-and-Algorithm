@@ -342,6 +342,134 @@ class HelloWorld {
 op-
 7 6 5 
 5 6 7 
+-------------------------------------------------------------
+13Q convert 1D array to 2D array
+class HelloWorld {
+    public static void main(String[] args) {
+int a[]={1,2,3,4,5,6,7,8,9};
+int count=0;
+int p=3;
+int q=3;
+int[][] arr=new int[p][q];
+for(int i=0;i<p;i++){
+    for(int j=0;j<q;j++){
+        arr[i][j]=a[count];
+        count++;
+            System.out.print(arr[i][j]+" ");
+    }
+    System.out.println();
+
+     }
+  }
+}
+op- 1 2 3
+    4 5 6
+    7 8 9
+--------------------------------------------------------
+14Q-shift matrix row wise
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int[][] arr=new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j]=sc.nextInt();
+            }
+        }
+        k=k-1;
+        shiftRowWise(arr,n,k);
+}
+ static void shiftRowWise(int[][] arr,int n,int k){
+    for(int i=0;i<n;i++){
+      reverse(arr,i,0,n-1);
+      reverse(arr,i,0,k-1);
+      reverse(arr,i,k,n-1);
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            System.out.print(arr[i][j]+" ");
+        }
+        System.out.println();
+    }
+ }
+     static void reverse(int [][] arr,int row,int l,int r){
+        int temp=arr[row][l];
+        arr[row][l]=arr[row][r];
+        arr[row][r]=temp;
+        
+        
+    }    
+}
+op-
+3
+2
+0 5 9 2 7 5 2 3 3
+9 0 5 
+5 2 7 
+3 2 3 
+----------------------------------------------------
+15Q-modify the matrix
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int[][] arr=new int[m][n];
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j]=sc.nextInt();
+            }
+        }
+        modifyTheMatrix(arr);
+        
+    }
+    static void modifyTheMatrix(int[][] arr){
+        int m=arr.length;
+        int n=arr[0].length;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(arr[i][j]==1){
+                    fillRowWithMinusOne(arr,i,j);
+                }
+            }
+        }
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(arr[i][j]==-1){
+                    arr[i][j]=1;
+                }
+            }
+        }
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+        
+    }
+    static void fillRowWithMinusOne(int[][] arr,int row,int col){
+        for(int j=0;j<arr[0].length;j++){
+            if(arr[row][j]!=1){
+                arr[row][j]=-1;
+            }
+        }
+        for(int i=0;i<arr.length;i++){
+            if(arr[i][col]!=1){
+                arr[i][col]=-1;
+            }
+        }
+    }
+}
+
+op-
+1 1 1 1
+1 1 1 1
+1 0 1 1
 
 
 
