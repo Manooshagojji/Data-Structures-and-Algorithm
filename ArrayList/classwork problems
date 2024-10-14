@@ -57,3 +57,43 @@ op-
 5
 1 2 3 4 5
 5 4 3 2 1 
+----------------------------------------------------------------------
+3Q-RemovePrimes in ArrayList
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Integer> arr=new ArrayList<>();
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++){
+            arr.add(sc.nextInt());
+        }
+        removePrimes(arr);
+
+    }
+    public static void removePrimes(ArrayList<Integer> arr){
+        for(int i=arr.size()-1;i>=0;i--){
+            if(checkPrime(arr.get(i))==true){
+                arr.remove(i);
+            }
+        }
+        System.out.println(arr);
+    }
+    public static boolean checkPrime(int x){
+        if(x<=1){
+            return false;
+
+        }
+        for(int i=2;i*i<=x;i++){
+            if(x%i==0){
+                return false;
+
+            }
+        }
+        return true;
+    }
+}
+op-
+7
+14 6 7 37 90 35 19
+[14,6,90,35]
