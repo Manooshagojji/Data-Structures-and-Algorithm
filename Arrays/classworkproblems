@@ -470,6 +470,59 @@ op-
 1 1 1 1
 1 1 1 1
 1 0 1 1
+-------------------------------------------------------------------
+16Q-PatternQuestion on Arrays
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+           Pattern(n);
+         }
+    public static void Pattern(int n){
+        for(int i=0;i<n;i++){
+            int val=1;
+            for(int j=0;j<=i;j++){
+                System.out.print(val+" ");
+                val=val*(i-j)/(j+1);
+            }
+            System.out.println();
+        }
+  }
+}
+ip=5
+op-
+1 
+1 1 
+1 2 1 
+1 3 3 1 
+1 4 6 4 1 
+----------------------------------------------------------------------
+17Q-Frequency Of Digit
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        long n=sc.nextLong();
+        int d=sc.nextInt();
+        FrequencyDigit(n,d);
+     }
+     public static void FrequencyDigit(long n,int d){
+         int count=0;
+        while(n>0){
+            int digit = (int)(n % 10); 
+            if(digit==d){
+                count++;
+            }
+            n=n/10;
+        }
+        System.out.println(count);
+         }
+}
+ip-1123432
+3
+op-2
+
 
 
 
