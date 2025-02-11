@@ -235,10 +235,10 @@ class HelloWorld {
         };
 int m=arr.length;
 int n=arr[0].length;
-      swap(arr,m,n);
+      Transpose(arr,m,n);//swap
       displayArray(arr,m,n);
         }
-        public static void swap(int[][] arr,int m,int n){
+        public static void Transpose(int[][] arr,int m,int n){
              for(int i=1;i<m;i++){
                 for(int j=0;j<i;j++){
                      int temp=arr[i][j];
