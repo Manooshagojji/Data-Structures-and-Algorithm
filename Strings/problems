@@ -1,0 +1,215 @@
+1Q-printIndicesOfVowels
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        printVowelsIndices(str);
+    }
+    public static void printVowelsIndices(String str){
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+                System.out.print(i+ " ");
+            }
+        }
+    }
+}
+ip-"aqua"
+op-0 2 3
+------------------      --------------------------          -----------------------------------------------------------------
+                2Q comparing two strings
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        String s1=sc.next();
+        System.out.println(s.equals(s1));
+
+
+    }
+}
+ip-manusha 
+manusha
+op-true
+--------------------------------------------------------------------------------------------
+3Q-Searching Character
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        char ch=sc.next().charAt(0);
+        char arr[]=new char[n];
+        for(int i=0;i<arr.length;i++){
+            arr[i]=sc.next().charAt(0);
+        }
+        System.out.println(searchCharacter(arr,n,ch));
+}
+    public static String searchCharacter(char arr[],int n,char ch){
+        for(int i=0;i<n;i++){
+            char c=arr[i];
+            if(c>ch){
+                return c+"";
+            }
+        }
+        return "-1";
+}
+}
+ip-5
+c
+a b c d e
+op-d
+---------------------------------------------------------------------------------------------
+4Q-check isogram or not
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        System.out.println(Isogram(s));
+    }
+    public static String Isogram(String s) {
+      int freq[]=new int[26];
+      for(int i=0;i<s.length();i++){
+          char ch=s.charAt(i);
+          int index=ch-'a';
+          freq[index]+=1;
+      }
+      for(int i=0;i<26;i++){
+          if(freq[i]>1){
+              return "Not an Isogram";
+          }
+      }
+      return "Isogram";
+    }
+}
+ip-machine
+op isogram
+ip-manusha
+op-not an isogram
+---------------------------------------------------------------------------
+5Q-first vowel occurence
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        char arr[]=new char[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.next().charAt(0);
+        }
+        System.out.println(vowelOccurance(arr,n));
+    }
+    public static int vowelOccurance(char arr[],int n) {
+        for(int i=0;i<n;i++){
+            if(checkVowel(arr[i])==true){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static boolean checkVowel(char ch){
+
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+                return true;
+            }
+            return false;
+    }
+}
+ip-5
+b c d e b
+op-3
+-------------------------------------------------------------------------------
+6Q-check anagram or not
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.next();
+        String s2=sc.next();
+        System.out.println(checkAnagram(s1,s2));
+    }
+    public static String checkAnagram(String s,String s1){
+        int freq[]=new int[26];
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            int index=ch-'a';
+            freq[index]+=1;
+        }
+        for(int i=0;i<s1.length();i++){
+            char ch=s1.charAt(i);
+            int index=ch-'a';
+            freq[index]-=1;
+        }
+        for(int i=0;i<26;i++){
+            if(freq[i]==0){
+                return "Anagram";
+            }
+        }
+        return "not an anagaram";
+    }
+}
+ip-abccba
+   cbaabc
+op-anagram
+------------------------------------------------------------------
+7Q-Check pangram
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        System.out.println(checkPangram(s));
+    }
+    public static String checkPangram(String s){
+        int freq[]=new int[26];
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch!=' ') {
+                int index = ch - 'a';
+                freq[index] += 1;
+            }
+        }
+
+        for(int i=0;i<26;i++){
+            if(freq[i]!=0){
+                return "Panagram";
+            }
+        }
+        return "not an Panagaram";
+    }
+}
+ip-the quick brown fox jumps over the lazy dog
+op-pangram
+------------------------------------------------------
+8Q-toggle case
+mport java.util.*;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        System.out.println(toggleCase(s));
+    }
+
+    public static String toggleCase(String s) {
+        String ans = "";
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch >= 'A' && ch <= 'Z') {
+                ch = (char) (ch - 'A' + 'a');
+                ans += ch;
+            } else {
+                ch = (char) (ch - 'a' + 'A');
+                ans += ch;
+            }
+
+        }
+        return ans;
+    }
+}
+ip-mAnUsHa
+op-MaNuShA
+
