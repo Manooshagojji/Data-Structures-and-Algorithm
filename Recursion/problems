@@ -133,5 +133,124 @@ class Main {
 }
 OP=3;
 ******************************************************************************************
+//LASTINDEX
+class Main {
+    public static void main(String[] args) {
+        int arr[]={15,11,40,3,9,40};
+        int n=arr.length;
+        int tar=40;
+        System.out.println(lastIndexDay(arr,tar,n-1,n));
+     }
+    public static int lastIndexDay(int arr[],int tar,int i,int n){
+        if (i==n){
+            return -1;
+        }
+        if(arr[i]==tar){
+            return i;
+        }
+        else{
+            return lastIndexDay(arr,tar,i-1,n);
+        }
+   }
+}
+OP=5;
+**************************************************************************************
+//PRINTALLINDICES
+import java.util.Arrays;
+class Main {
+    public static void main(String[] args) {
+        int arr[]={15,11,40,4,4,9};
+        int n=arr.length;
+        int tar=4;
+       int[] res= printAllIndices(0,arr,tar,n,0);
+       System.out.println(Arrays.toString(res));
+     }
+    public static int[] printAllIndices(int i,int arr[],int tar,int n,int c){
+        if(i==n){
+            int[] base=new int[c];
+            return base;
+        }
+        int ans[];
+        if(arr[i]==tar){
+        ans=printAllIndices(i+1,arr,tar,n,c+1);
+        ans[c]=i;
+        }
+        else{
+             ans=printAllIndices(i+1,arr,tar,n,c);
+        }
+        return ans;
+   }
+}
+OP=[3, 4]
+*******************************************************************************************************************
+//GETSUBSEQUENCE
+class Main {
+    public static void main(String[] args) {
+        //System.out.println("Try programiz.pro");
+        String que="abc";
+        getSubSeq(que,"");
+    }
+    public static void getSubSeq(String que,String ans){
+        if(que.length()==0){
+            System.out.println(ans);
+            return;
+        }
+        char ch=que.charAt(0);
+        String ros=que.substring(1);
+        //include character
+        getSubSeq(ros,ans+ch);
+        //exclude character
+        getSubSeq(ros,ans);
+    }
+}
+OP:
+abc ab ac a bc b c  
+********************************************************************
+//GETSTAIRPATHS
+class Main {
+    public static void main(String[] args) {
+        //System.out.println("Try programiz.pro");
+        int n=3;
+        getStairpaths(n,"");
+    }
+    public static void getStairpaths(int n,String ans){
+        if(n==0){
+            System.out.print(ans+" ");
+            return;
+        }
+        if(n<0){
+            return;
+        }
+        getStairpaths(n-1,ans+"1");
+        getStairpaths(n-2,ans+"2");
+        getStairpaths(n-3,ans+"3");
+        
+    }
+}
+OP=111 12 21 3 
+****************************************************************************************
+//GETMAIZEPATH
+class Main {
+    public static void main(String[] args) {
+        //System.out.println("Try programiz.pro");
+        int m=3;
+        int n=3;
+        getMaizePath(0,0,m-1,n-1,"");
+    }
+    public static void getMaizePath(int sr,int sc,int dr,int dc,String ans){
+    if(sr>dr||sc>dc){
+        return;
+    }
+    if(sr==dr&&sc==dc){
+        System.out.print(ans+" ");
+    }
+    getMaizePath(sr,sc+1,dr,dc,ans+"h");
+     getMaizePath(sr+1,sc,dr,dc,ans+"v");
+    }
+}
+OP=hhvv hvhv hvvh vhhv vhvh vvhh 
+******************************************************************************************************
+
+
 
 
