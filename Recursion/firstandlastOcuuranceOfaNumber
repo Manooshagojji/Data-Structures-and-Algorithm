@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+       Scanner sc  = new Scanner(System.in);
+       int n = sc.nextInt();
+       int[] arr = new int[n];
+       for(int i=0;i<n;i++) {
+           arr[i] = sc.nextInt();
+       }
+       int t = sc.nextInt();
+       ArrayList<Integer> list = new ArrayList<>();
+       firstandlastOcuuranceOfNumber(arr,0,list,t);
+       System.out.println(list);
+    }
+    public static void firstandlastOcuuranceOfNumber(int[] arr,int i,ArrayList<Integer> list,int t) {
+        if(i == arr.length) {
+            return;
+        } 
+        if(arr[i] == t) {
+            list.add(i);
+        }
+        firstandlastOcuuranceOfNumber(arr,i+1,list,t);
+        
+        
+    }
+
+    
+}
