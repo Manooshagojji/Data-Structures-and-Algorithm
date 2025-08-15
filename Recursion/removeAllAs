@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+       Scanner sc  = new Scanner(System.in);
+       String str = sc.next();
+       removeAllAs(str,"");
+       
+    }
+    public static void removeAllAs(String str,String ans) {
+        
+        if(str.isEmpty()) {
+            System.out.println(ans);
+            return;
+        } 
+        char ch = str.charAt(0);
+        if(ch == 'a') {
+            removeAllAs(str.substring(1),ans);
+        }
+        else{
+        removeAllAs(str.substring(1),ans+ch);
+        }
+        
+        
+        
+    }
+
+    
+}
