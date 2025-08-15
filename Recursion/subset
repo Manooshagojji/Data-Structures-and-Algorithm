@@ -1,0 +1,51 @@
+// without return type
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+       Scanner sc  = new Scanner(System.in);
+       String str = sc.next();
+       subset(str,"");
+       
+    }
+    public static void subset(String str,String ans) {
+        
+        if(str.isEmpty()) {
+            System.out.print(ans+" ");
+            
+            return;
+        } 
+        char ch = str.charAt(0);
+        subset(str.substring(1),ans);
+        subset(str.substring(1),ans+ch);
+        
+        
+        
+    }
+
+    
+}
+//with return type
+
+class SubsetOfString {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        System.out.println(subseq(list, "abc", ""));
+    }
+
+    public static ArrayList<String> subseq(ArrayList<String> list, String str, String ans) {
+        if (str.isEmpty()) {
+            list.add(ans);
+            return list;
+        }
+        char ch = str.charAt(0);
+
+        // Include the character
+        subseq(list, str.substring(1), ans + ch);
+
+        // Exclude the character
+        subseq(list, str.substring(1), ans);
+
+        return list;
+    }
+}
+
