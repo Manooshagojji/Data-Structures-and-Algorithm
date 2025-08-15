@@ -1,3 +1,4 @@
+// for any order
 import java.util.*;
 public class Main
 {
@@ -26,3 +27,52 @@ public class Main
 	
 	
 }
+======================================
+// for sorted order(opimized)
+public class Main{
+    public static void main(String[] args) {
+        int[] arr = {0, 0, 0, 1, 1, 1};
+        System.out.println("Count of zeroes: " + countZeroes(arr));
+    }
+
+    // Find first occurrence of 0
+    static int firstZero(int[] arr) {
+        int low = 0, high = arr.length - 1, result = -1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] == 0) {
+                result = mid;
+                high = mid - 1; // search left side
+            } else {
+                high = mid - 1; // move left if arr[mid] > 0
+            }
+        }
+        return result;
+    }
+
+    // Find last occurrence of 0
+    static int lastZero(int[] arr) {
+        int low = 0, high = arr.length - 1, result = -1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] == 0) {
+                result = mid;
+                low = mid + 1; // search right side
+            } else {
+                high = mid - 1; // move left if arr[mid] > 0
+            }
+        }
+        return result;
+    }
+
+    // Count zeroes using binary search
+    public static int countZeroes(int[] arr) {
+        int first = firstZero(arr);
+        if (first == -1) return 0; // no zero found
+        int last = lastZero(arr);
+        return last - first + 1;
+    }
+
+    
+}
+
