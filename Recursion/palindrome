@@ -1,0 +1,53 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    
+	    
+	    int n = sc.nextInt();
+	    
+	    reverse(n);
+	    System.out.println(palindrome(n));
+		
+	}
+	public static int reverse(int n) {
+	   return revhelper(n,0);
+	    
+	    
+	}
+	public static int revhelper(int n,int rev) {
+	    if(n == 0) return rev;
+	    rev = rev*10+n%10;
+	    return revhelper(n/10,rev);
+	}
+	public static boolean palindrome(int n) {
+	    return (n == reverse(n));
+	}
+}
+==============================================
+public class Main {
+
+    
+    public static int reverseHelper(int n, int rev) {
+        if (n == 0) {
+            return rev;
+        }
+        rev = rev * 10 + (n % 10);
+        return reverseHelper(n / 10, rev);
+    }
+
+    public static boolean isPalindrome(int n) {
+        return n == reverseHelper(n, 0);
+    }
+
+    public static void main(String[] args) {
+        int num = 12321;
+        if (isPalindrome(num)) {
+            System.out.println(num + " is a palindrome");
+        } else {
+            System.out.println(num + " is NOT a palindrome");
+        }
+    }
+}
+
