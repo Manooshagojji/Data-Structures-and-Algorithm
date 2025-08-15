@@ -26,3 +26,68 @@ public class Main{
 
     
 }
+========================
+// vth return type and list passed in argument
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+       Scanner sc  = new Scanner(System.in);
+       int n = sc.nextInt();
+       int[] arr = new int[n];
+       for(int i=0;i<n;i++) {
+           arr[i] = sc.nextInt();
+       }
+       int t = sc.nextInt();
+       ArrayList<Integer> list = new ArrayList<>();
+       System.out.println(firstandlastOcuuranceOfNumber(arr,0,list,t));
+       //System.out.println(list);
+    }
+    public static ArrayList<Integer> firstandlastOcuuranceOfNumber(int[] arr,int i,ArrayList<Integer> list,int t) {
+        if(i == arr.length) {
+            return list;
+        } 
+        if(arr[i] == t) {
+            list.add(i);
+        }
+        return firstandlastOcuuranceOfNumber(arr,i+1,list,t);
+        
+        
+    }
+
+    
+}
+===================================
+// return the list but dont take it in argument, create in bodyy
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+       Scanner sc  = new Scanner(System.in);
+       int n = sc.nextInt();
+       int[] arr = new int[n];
+       for(int i=0;i<n;i++) {
+           arr[i] = sc.nextInt();
+       }
+       int t = sc.nextInt();
+       
+       System.out.println(firstandlastOcuuranceOfNumber(arr,0,t));
+       //System.out.println(list);
+    }
+    public static ArrayList<Integer> firstandlastOcuuranceOfNumber(int[] arr,int i,int t) {
+        ArrayList<Integer> list = new ArrayList<>();
+        if(i == arr.length) {
+            return list;
+        } 
+        if(arr[i] == t) {
+            list.add(i);
+        }
+        
+        ArrayList<Integer> ansfromBelowCalls =  firstandlastOcuuranceOfNumber(arr,i+1,t);
+        list.addAll(ansfromBelowCalls);
+        return list;
+        
+        
+    }
+
+    
+}
+
