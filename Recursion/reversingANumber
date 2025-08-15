@@ -1,0 +1,48 @@
+// without return type
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    
+	    
+	    int n = sc.nextInt();
+	    
+	    reverse(n);
+		
+	}
+	public static void reverse(int n) {
+	    if(n == 0) return ;
+	    System.out.print(n%10);
+	    reverse(n/10);
+	    
+	    
+	}
+}
+----------------------
+// 2nd way-with returnType
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    
+	    
+	    int n = sc.nextInt();
+	    
+	    System.out.println(reverse(n));
+		
+	}
+	public static int reverse(int n) {
+	   return revhelper(n,0);
+	    
+	    
+	}
+	public static int revhelper(int n,int rev) {
+	    if(n == 0) return rev;
+	    rev = rev*10+n%10;
+	    return revhelper(n/10,rev);
+	}
+}
+
