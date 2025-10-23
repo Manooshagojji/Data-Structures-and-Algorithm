@@ -17,7 +17,7 @@ class Main {
         Node head = convertArr2LL(arr);
         int value =7;
        
-        head = insertAtHead(head,value);
+        head = insertAtEnd(head,value);
         print(head);
     }
     public static Node convertArr2LL(int[] arr) {
@@ -39,7 +39,7 @@ class Main {
         System.out.print(temp.data);
         System.out.println();
     }
-    public static Node insertAtHead(Node head,int value) {
+    public static Node insertAtEnd(Node head,int value) {
         if(head == null) {
             return new Node(value);
         }
